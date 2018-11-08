@@ -21,7 +21,7 @@ public abstract class SortTestAdapter
 
         if (testContent)
         {
-            ArrayList<Integer> list = new ArrayList(Arrays.asList(IntStream.of(array).boxed().toArray(Integer[]::new)));
+            ArrayList<Integer> list = new ArrayList(Arrays.asList(IntStream.of(this.array).boxed().toArray(Integer[]::new)));
 
             for (int i = 0; i < size; i++)
             {
@@ -51,7 +51,7 @@ public abstract class SortTestAdapter
     long run() throws UnsortedArrayException
     {
         var watch = Stopwatch.startNew();
-        int[] result = test(array);
+        int[] result = test(array.clone());
         watch.stop();
 
         validateResult(result, true);
